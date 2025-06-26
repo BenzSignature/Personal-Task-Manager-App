@@ -1,4 +1,4 @@
-# 📋 Personal Task Manager App
+# Personal Task Manager App
 
 A simple Flutter app for managing daily personal tasks with calendar integration.
 
