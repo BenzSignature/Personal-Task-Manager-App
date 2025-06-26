@@ -1,16 +1,26 @@
-# personal_task_manager_app
+# 📋 Personal Task Manager App
 
-A new Flutter project.
+A simple Flutter app for managing daily personal tasks with calendar integration.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- ✅ Add, edit, and delete tasks
+- ✅ Mark tasks as completed
+- ✅ Display task list on Home screen
+- ✅ Reactive state updates using GetX
+- ✅ Local storage using Hive
+- ✅ Clean project structure (MVC + Bindings)
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠 Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter 3.8.1
+- GetX (state management + routing)
+- Hive (local database)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## 🚀 Getting Started
+
+```bash
+flutter pub get
+flutter pub run build_runner build --delete-conflicting-outputs
+flutter run
