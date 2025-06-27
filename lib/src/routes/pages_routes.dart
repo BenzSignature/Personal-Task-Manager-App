@@ -16,5 +16,10 @@ class PagesRoutes {
       page: () => AddTaskView(),
       binding: AddTaskBinding(),
     ),
+    GetPage(
+      name: PathRoutes.calendarTable,
+      page: () => CalendarTable(),
+      binding: CalendarBinding(),
+    ),
   ];
 }
