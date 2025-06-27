@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:personal_task_manager_app/src/config/export_config.dart';
 import 'package:personal_task_manager_app/src/controllers/export_controllers.dart';
+import 'package:personal_task_manager_app/src/core/widgets/export_widgets.dart';
 
 class AddTaskView extends GetView<AddTaskController> {
   const AddTaskView({super.key});
@@ -8,7 +9,7 @@ class AddTaskView extends GetView<AddTaskController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('เพิ่มงานใหม่')),
+      appBar: AppBar(title: const CustomText('Add New Task', fontSize: 18)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -33,24 +34,21 @@ class AddTaskView extends GetView<AddTaskController> {
             Obx(
               () => Row(
                 children: [
-                  const Text('วันที่:'),
-                  const SizedBox(width: 12),
-                  Text(
+                  const CustomText('วันที่ :', fontSize: 14),
+                  const SizedBox(width: 8),
+                  CustomText(
                     '${controller.selectedDate.value.toLocal()}'.split(' ')[0],
                   ),
                   const Spacer(),
                   TextButton(
                     onPressed: () => controller.pickDate(context),
-                    child: const Text('เลือกวันที่'),
+                    child: const CustomText('เลือกวันที่'),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: controller.saveTask,
-              child: const Text('บันทึก'),
-            ),
+            MyButton(onPressed: controller.saveTask, name: 'บันทึก'),
           ],
         ),
       ),

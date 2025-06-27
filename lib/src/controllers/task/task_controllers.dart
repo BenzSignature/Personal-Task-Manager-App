@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 class TaskController extends GetxController {
   var taskList = <TaskModel>[].obs;
   late Box<TaskModel> taskBox;
+  final Rx<DateTime> selectedDate = DateTime.now().obs;
+  final calendarFormat = CalendarFormat.month.obs;
 
   @override
   void onInit() {

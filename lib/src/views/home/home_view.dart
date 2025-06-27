@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:personal_task_manager_app/src/config/export_config.dart';
 import 'package:personal_task_manager_app/src/controllers/export_controllers.dart';
+import 'package:personal_task_manager_app/src/core/widgets/export_widgets.dart';
 import 'package:personal_task_manager_app/src/models/export_model.dart';
 import 'package:personal_task_manager_app/src/routes/export_routes.dart';
 
@@ -10,7 +11,16 @@ class HomeView extends GetView<TaskController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('📋 My Tasks'), centerTitle: true),
+      appBar: AppBar(
+        title: const CustomText('My Tasks', fontSize: 18),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.calendar_today),
+            onPressed: () => Get.toNamed(PathRoutes.calendarTable),
+          ),
+        ],
+      ),
       body: Obx(() {
         final tasks = controller.taskList;
         if (tasks.isEmpty) {
@@ -24,21 +34,20 @@ class HomeView extends GetView<TaskController> {
             return Card(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: ListTile(
-                title: Text(
+                title: CustomText(
                   task.title,
-                  style: TextStyle(
-                    decoration: task.isDone ? TextDecoration.lineThrough : null,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  decoration: task.isDone ? TextDecoration.lineThrough : null,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(task.description),
+                    CustomText(task.description, fontWeight: FontWeight.w400),
                     const SizedBox(height: 4),
-                    Text(
-                      '📅 ${task.date.toLocal().toString().split(' ')[0]}',
-                      style: const TextStyle(color: Colors.grey),
+                    CustomText(
+                      'วันที่ : ${task.date.toLocal().toString().split(' ')[0]}',
+                      color: Colors.grey,
                     ),
                   ],
                 ),
