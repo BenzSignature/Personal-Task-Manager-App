@@ -7,6 +7,7 @@ class TaskController extends GetxController {
   late Box<TaskModel> taskBox;
   final Rx<DateTime> selectedDate = DateTime.now().obs;
   final calendarFormat = CalendarFormat.month.obs;
+  var searchQuery = ''.obs;
 
   @override
   void onInit() {
