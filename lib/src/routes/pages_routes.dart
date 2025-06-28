@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:personal_task_manager_app/src/bindings/edit_task/edit_task_binding.dart';
 import 'package:personal_task_manager_app/src/bindings/export_bindings.dart';
 import 'package:personal_task_manager_app/src/routes/export_routes.dart';
 import 'package:personal_task_manager_app/src/views/export_views.dart';
@@ -20,6 +21,11 @@ class PagesRoutes {
       name: PathRoutes.calendarTable,
       page: () => CalendarTable(),
       binding: CalendarBinding(),
+    ),
+    GetPage(
+      name: PathRoutes.editController,
+      page: () => EditTaskView(),
+      binding: EditTaskBinding(),
     ),
   ];
 }

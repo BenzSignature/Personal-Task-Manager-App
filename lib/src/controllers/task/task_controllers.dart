@@ -36,4 +36,16 @@ class TaskController extends GetxController {
     task.save();
     taskList[index] = task;
   }
+
+  void editTask(TaskModel task, String newTitle, String newDescription) {
+    final index = taskList.indexOf(task);
+    if (index != -1) {
+      final updated = task.copyWith(
+        title: newTitle,
+        description: newDescription,
+      );
+      taskList[index] = updated;
+      taskBox.putAt(index, updated);
+    }
+  }
 }
